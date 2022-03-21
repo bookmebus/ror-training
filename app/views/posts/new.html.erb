@@ -1,0 +1,5 @@
+<h1 class='title'>New Post</h1>
+<button><%= link_to 'back to home', controller: "posts",action:"index" %></button>
+<br>
+<%# call widget form to use %>
+<%= render :partial => 'form', :layout => 'posts/form'%>

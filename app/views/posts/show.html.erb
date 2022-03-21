@@ -1,0 +1,9 @@
+<h1><strong>Show Post</strong></h1>
+<br>
+<p> post id: <%= @post.id%></p>
+<p> wrote by: <strong> <%= @post.user_name%></strong></p>
+<p> title: <%= @post.title%></p>
+<p> content: <%= @post.content%></p>
+<button><%= link_to 'back', :back %></button>
+<button><%= link_to 'edit', edit_post_path(@post)%></button>
+<%= button_to 'delete', post_path(@post), method: :delete,form:{ data: {turbo_confirm: "Are you sure?"}}%>

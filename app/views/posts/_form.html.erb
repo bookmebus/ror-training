@@ -1,0 +1,11 @@
+<%# create widget form
+NOTE: name of widget much start with _name.html.erb
+%>
+<%= simple_form_for @post do |f|%>
+<%= f.input :user_name, label:'Your name'%>
+<br>
+<%= f.input :title, label:'Title'%>
+<br>
+<%= f.input :content, label:'Content'%>
+<%= f.button :submit%>
+<%end%>

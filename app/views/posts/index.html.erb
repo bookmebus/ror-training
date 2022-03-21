@@ -1,0 +1,13 @@
+<h1>Welcom to Blog Post</h1>
+<br>
+<%# want to navigate to anoter route %>
+<button>
+  <%= link_to 'create post', controller: "posts", action: "new"%>
+</button>
+<div class='container'>
+<%# for each loop %>
+  <% Post.all.each do |post|%>
+    <p>Title:       <%= link_to post.title, post%></p>
+    <p>Content:      <%= post.content%></p>
+  <%end%>
+</div>

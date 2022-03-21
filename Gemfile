@@ -5,7 +5,11 @@ ruby "3.0.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
-
+gem 'bootstrap', '~> 5.1.3'
+# Make a modern css look
+gem 'bulma-rails', '~> 0.9.3'
+# Simple form
+gem 'simple_form'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -56,7 +60,12 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
+  # Guard is a command line tool to easily handle events on file system modifications
+  gem 'guard', '~> 2.18'
+  # live reload auto when view file change
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
+  # Make error looking good
+  gem 'better_errors', '~> 2.9', '>= 2.9.1'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
