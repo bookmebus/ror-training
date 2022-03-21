@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   # get 'post/index'
   # NOTE: when use resouse name should be plural
-  resources :posts
+
+  # scope route posts
+  # nested route
+  resources :posts do
+    resources :comments
+  end
   get 'posts/new', to: 'posts#new'
   root 'posts#index'
 

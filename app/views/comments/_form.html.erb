@@ -1,0 +1,7 @@
+<%= simple_form_for [@post, @post.comments.build] do |f|%>
+<%= f.input :name, label:'Your name'%>
+<br>
+<%= f.input :comment, label:'comment'%>
+<br>
+<%= f.button :submit%>
+<%end%>

@@ -1,0 +1,5 @@
+<p>
+<%= @post.comments[:name] %>: <%= @post.comments[:comment] %>
+</p>
+<%# delete comment that belong to post %>
+<%= button_to 'delete', [comment.post, comment], method: :delete,form:{ data: {turbo_confirm: "Are you sure?"}} %>

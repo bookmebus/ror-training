@@ -7,3 +7,9 @@
 <button><%= link_to 'back', :back %></button>
 <button><%= link_to 'edit', edit_post_path(@post)%></button>
 <%= button_to 'delete', post_path(@post), method: :delete,form:{ data: {turbo_confirm: "Are you sure?"}}%>
+<div>
+  <p><%= @post.comments.count%> comments</p>
+  <%= render :partial => 'comments/comment', :layout => 'comments/comment' %>
+  <p> leave a comment </p>
+  <%= render :partial => 'comments/form', :layout => 'comments/form'%>
+</div>
