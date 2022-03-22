@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<%= render("form", greeting: Greeting.new) %>
 
-<h1>Greetings</h1>
-
-<div id="greetings">
-  <% @greetings.each do |greeting| %>
-    <%= render greeting %>
-    <p>
-      <%= link_to "Show this greeting", greeting %>
-    </p>
-  <% end %>
+<p id="notice"><%= notice %></p>
+<br/>
+<% @greetings.each do |greeting| %>
+  <div class="media">
+    <img src="<%= gravatarized_url(greeting.name) %>" class="align-self-start mr-3">
+    <div class="media-body">
+      <h5 class="mt-0"><%= greeting.name %></h5>
+      <%= greeting.message %>
+    </div>
 </div>
-
-<%= link_to "New greeting", new_greeting_path %>
+  <br/>
+<% end %>

@@ -34,3 +34,9 @@ bundle exec rake db:create # create, migrate, seed
 # Starting a Rails Server
 rails s
 ```
+
+## Useful Commands
+```
+rails routes
+rails console
+```
