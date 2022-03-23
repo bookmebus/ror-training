@@ -1,14 +1,19 @@
-<%= render("form", greeting: Greeting.new) %>
-
-<p id="notice"><%= notice %></p>
 <br/>
+<h1 class="mb-4">Greetings</h1>
+
+<div id="notice" class="alert alert-primary mt-2 mb-4" role="alert">
+  <%= notice %>
+</div>
+
 <% @greetings.each do |greeting| %>
-  <div class="media">
-    <img src="<%= gravatarized_url(greeting.name) %>" class="align-self-start mr-3">
+  <div class="media mb-2">
+    <img src="<%= gravatarized_url(greeting.name) %>" class="align-self-start mr-3 rounded">
     <div class="media-body">
       <h5 class="mt-0"><%= greeting.name %></h5>
       <%= greeting.message %>
     </div>
-</div>
-  <br/>
+    <%= button_to "Delete", greeting_path(greeting), method: :delete, class: "btn btn-danger" %>
+  </div>
 <% end %>
+
+<%= render("form", greeting: Greeting.new) %>

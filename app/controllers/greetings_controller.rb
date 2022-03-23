@@ -50,7 +50,6 @@ class GreetingsController < ApplicationController
   # DELETE /greetings/1 or /greetings/1.json
   def destroy
     @greeting.destroy
-
     respond_to do |format|
       format.html { redirect_to greetings_url, notice: "Greeting was successfully destroyed." }
       format.json { head :no_content }
