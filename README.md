@@ -27,6 +27,9 @@ Things you may want to cover:
 * Rails
 * PosgreSQL
 
+## Demonstrations
+- [Greeting](https://greeting-rails-training.herokuapp.com)
+
 ## Prerequisites
 ```s
 bundle exec rake db:create # create, migrate, seed
