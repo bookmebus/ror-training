@@ -34,3 +34,27 @@ bundle exec rake db:create # create, migrate, seed
 # Starting a Rails Server
 rails s
 ```
+
+## Deployment
+First you need to [install heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli), then run following commands:
+```shell
+heroku login
+
+# for new project
+heroku create
+
+# for existing project
+heroku git:remote -a existing-project-name-here
+
+# list
+git remote -v
+
+# trigger deployment
+git push heroku master
+```
+
+## Useful Commands
+```shell
+rails routes
+rails console
+```
