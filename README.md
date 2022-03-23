@@ -53,6 +53,15 @@ git remote -v
 git push heroku master
 ```
 
+### Resolve Errors
+#### Conflict Platform Supports
+Your bundle only supports platforms ["x86_64-darwin-20"] but your local platform is x86_64-linux:
+```
+bundle lock --add-platform x86_64-linux`
+git commit -m "your-message"
+git push heroku master
+```
+
 ## Useful Commands
 ```shell
 rails routes
