@@ -220,7 +220,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-postgis-adapter
-  annotate (~> 3)
+  annotate
   bootsnap
   debug
   factory_bot_rails (~> 5)

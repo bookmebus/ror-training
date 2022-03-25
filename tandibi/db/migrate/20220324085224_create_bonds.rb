@@ -11,7 +11,6 @@ class CreateBonds < ActiveRecord::Migration[7.0]
       :users,
       column: :user_id
     add_foreign_key :bonds, :users, column: :friend_id
+    add_index :bonds, [:user_id, :friend_id], unique: true
   end
-
-  add_index :bonds, [:user_id, :friend_id], unique: true
 end
