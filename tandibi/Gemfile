@@ -44,6 +44,7 @@ gem "bootsnap", require: false
 
 gem 'factory_bot_rails', '~> 5'
 gem 'activerecord-postgis-adapter'
+gem 'devise', '~> 4.8', '>= 4.8.1'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
