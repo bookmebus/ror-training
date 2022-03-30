@@ -1,2 +1,5 @@
 <h1>Home#index</h1>
+<%flash[:notice] = "Successfully created..."%>
+<%# current_user is a devise method that allow us to access current user info %>
+<p> <%= current_user.username%></p>
 <p>Find me in app/views/home/index.html.erb</p>
