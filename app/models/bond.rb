@@ -19,4 +19,17 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Bond < ApplicationRecord
+  belongs_to :user
+  # friend also user so bond belongs to user, one user can have many friend and friend also user
+  belongs_to :friend, class_name: 'user'
+  # create enum state for bond
+  enum state: {
+    following: FOLLOWING,
+    requesting: REQUESTING,
+    blocking: BLOCKING
+  }
+  # create scope for state
+  scope :following, -> { where(state: FOLLOWING) }
+  scope :requesting, -> { where(state: REQUESTING) }
+  scope :blocking, -> { where(state: BLOCKING) }
 end

@@ -20,5 +20,10 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Post < ApplicationRecord
+  # don't understand still figure out
   belongs_to :postable, polymorphic: true
+  belongs_to :user
+  # by default, it required relation belongs_to but to make it optional, we used optional: true
+  belongs_to :thread, class_name: 'Post', optional: true
+  has_many :pictures
 end
