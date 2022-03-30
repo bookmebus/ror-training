@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'timelines/index'
-  get 'timelines/show'
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
@@ -8,4 +6,8 @@ Rails.application.routes.draw do
     get '/users/login' => 'devise/sessions/new#post'
   end
   root to: "home#index"
+  authenticate :user do
+    resources :timelines,
+      only: [:index, :show]
+  end
 end
