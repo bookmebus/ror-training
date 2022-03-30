@@ -1,5 +1,18 @@
 <h1>Home#index</h1>
-<%flash[:notice] = "Successfully created..."%>
+<%flash[:notice] = "just testing notice"%>
 <%# current_user is a devise method that allow us to access current user info %>
-<p> <%= current_user.username%></p>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if current_user.present?%>
+<p>
+ <%= current_user.username%>
+</p>
+<p>
+edit your profile
+<%= link_to 'edit', edit_user_registration_path %>
+</p>
+<%= button_to 'logout',destroy_user_session_path, method: :delete, form:{ data: {turbo_confirm: "Are you sure that you wanna leave?"}}%>
+<% else%>
+<p>you already logout</p>
+<%= link_to 'login',new_user_session_path%>
+<p>create new accout ???</p>
+<%= link_to 'sign up', new_user_registration_path%>
+<%end%>
