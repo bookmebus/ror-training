@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Tandibi</a>
+  <div class="navbar-expand" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <% if current_user %>
+      <li class="nav-item">
+        <%= link_to "Timelines", timelines_path, :method => :get, class: "nav-link #{"active" if on_bunch?}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Profile", timeline_path(current_user), :method => :get, class: "nav-link #{"active" if on_self?}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, id: "btn-sign-out", class: "nav-link text-danger" %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
+<script>
+window.addEventListener("load", function(){
+  document.getElementById("btn-sign-out").onclick = function(e){
+    if(!window.confirm("Are you sure to sign out?")){
+      e.preventDefault()
+    }
+  };
+});
+</script>
