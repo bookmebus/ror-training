@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_25_083850) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_30_042331) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
 
   create_table "bonds", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -33,12 +32,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_083850) do
 
   create_table "places", force: :cascade do |t|
     t.string "locale", null: false
-    t.geography "coordinate", limit: {:srid=>4326, :type=>"st_point", :has_z=>true, :geographic=>true}, null: false
+    t.string "coordinate", null: false
     t.string "name", null: false
     t.string "place_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["coordinate"], name: "index_places_on_coordinate", using: :gist
     t.index ["locale", "coordinate"], name: "index_places_on_locale_and_coordinate", unique: true
     t.index ["locale"], name: "index_places_on_locale"
   end
@@ -81,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_083850) do
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "bonds", "users"
