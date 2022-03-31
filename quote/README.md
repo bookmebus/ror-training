@@ -27,4 +27,5 @@ Things you may want to cover:
 rails new quotes
 rails s
 bin/rails generate controller Quotes index
+bin/rails generate model Quote quote:string --force
 ```
