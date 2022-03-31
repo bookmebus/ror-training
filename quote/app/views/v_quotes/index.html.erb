@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>V quotes</h1>
+
+<div id="v_quotes">
+  <% @v_quotes.each do |v_quote| %>
+    <%= render v_quote %>
+    <p>
+      <%= link_to "Show this v quote", v_quote %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New v quote", new_v_quote_path %>

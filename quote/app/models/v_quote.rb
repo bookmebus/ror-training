@@ -1,0 +1,2 @@
+class VQuote < ApplicationRecord
+end
