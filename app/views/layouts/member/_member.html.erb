@@ -1,0 +1,23 @@
+<nav class="topnav">
+  <div class="flex items-center flex-shrink-0">
+    <%= link_to timelines_path do %>
+      <h1>tandibi</h1>
+    <% end %>
+  </div>
+  <div class="block flex-grow flex items-center w-auto">
+    <div class="text-sm flex-grow">
+      <%= link_to timelines_path,
+        class: "linked-icon #{"active" if on_bunch?}" do %>
+      <% end %>
+      <%= link_to timeline_path(current_user),
+        class: "linked-icon #{"active" if on_self?}" do %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to destroy_user_session_path,
+        class: "linked-icon sign-out",
+        method: :delete do %>
+      <% end %>
+    </div>
+  </div>
+</nav>

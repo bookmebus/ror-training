@@ -51,6 +51,14 @@ class User < ApplicationRecord
            -> { where('bonds.state = ?', Bond.requesting) },
            through: :bonds,
            source: :friend
+  # create callback before_save:
+  before_save :ensure_proper_name_case
+  def to_param
+    username
+  end
+
+  def login; end
+
   # create function to generate user avatar
   def gravatar_url
     hash = Digest::MD5.hexdigest(email)

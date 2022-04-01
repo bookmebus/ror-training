@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   # Registering the Paths of the TimelinesController
   authenticate :user do
     resources :timelines,
-              only: %i[index show]
+              only: %i[index show],
+              # let’s tell the router to call the identifier as a username instead of an ID
+              params: :username
   end
   # Defines the root path route ("/")
   # root "articles#index"
