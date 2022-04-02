@@ -1,6 +1,7 @@
 class VQuotesController < ApplicationController
   before_action :require_user_logged_in!
   before_action :set_v_quote, only: %i[ show edit update destroy ]
+  before_action :require_quote_owner, only: [:edit, :update, :destroy]
 
   # GET /v_quotes or /v_quotes.json
   def index
@@ -62,6 +63,13 @@ class VQuotesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_v_quote
       @v_quote = VQuote.find(params[:id])
+    end
+
+    def require_quote_owner
+      @v_quote = VQuote.find(params[:id])
+      unless Current.user.id == @v_quote.user.id
+        redirect_to root_path, notice: 'Unauthorized'
+      end
     end
 
     # Only allow a list of trusted parameters through.
