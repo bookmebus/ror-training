@@ -23,7 +23,14 @@ Things you may want to cover:
 
 * ... -->
 
+## Scaffold quote
 ```s
 rails g scaffold VQuote quote:text authur:text
+rails db:migrate
+```
+
+## Add user references to quotes
+```s
+rails g migration AddUserRefToVQuotes user:references
 rails db:migrate
 ```

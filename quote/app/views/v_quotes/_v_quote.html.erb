@@ -1,12 +1,7 @@
 <div id="<%= dom_id v_quote %>">
   <p>
     <strong>Quote:</strong>
-    <%= v_quote.quote %>
+    <%= v_quote.quote %> - <%= v_quote.authur %>
+    <br>Published by: <%= v_quote.user.email %>
   </p>
-
-  <p>
-    <strong>Authur:</strong>
-    <%= v_quote.authur %>
-  </p>
-
 </div>
