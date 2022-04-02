@@ -1,18 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>V quotes</h1>
+<h1>Quotes</h1>
 
 <div id="v_quotes">
   <% @v_quotes.each do |v_quote| %>
     <%= render v_quote %>
-    <p>
-      <%= link_to "Show this v quote", v_quote %>
-    </p>
+    <%= link_to "Edit", edit_v_quote_path(v_quote) %>
+    <%= button_to "Delete", @v_quote, method: :delete %>
   <% end %>
 </div>
+<br><br>
 
 <%= link_to "New v quote", new_v_quote_path %>
 
+<br><br>
 <% if Current.user %>
   Logged in as: <%= Current.user.email %><br>
   <%= link_to 'Edit Password', edit_password_path %>

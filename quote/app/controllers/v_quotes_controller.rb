@@ -1,4 +1,5 @@
 class VQuotesController < ApplicationController
+  before_action :require_user_logged_in!
   before_action :set_v_quote, only: %i[ show edit update destroy ]
 
   # GET /v_quotes or /v_quotes.json
@@ -21,7 +22,7 @@ class VQuotesController < ApplicationController
 
   # POST /v_quotes or /v_quotes.json
   def create
-    @v_quote = VQuote.new(v_quote_params)
+    @v_quote = VQuote.new(v_quote_params.merge(user_id: Current.user.id))
 
     respond_to do |format|
       if @v_quote.save
