@@ -61,13 +61,28 @@ git push heroku master
 #### Conflict Platform Supports
 Your bundle only supports platforms ["x86_64-darwin-20"] but your local platform is x86_64-linux:
 ```
-bundle lock --add-platform x86_64-linux`
+bundle lock --add-platform x86_64-linux
 git commit -m "your-message"
 git push heroku master
 ```
 
+## Migrate to PostgreSQL
+If you using SQLite & you can migrate to PostgreSQL with following steps:
+1. Install PostgreSQL `gem install postgresql`
+2. Update to `gem "pg"` in Gemfile
+3. Change adapter to postgresql in `database.yml`
+4. Install [PostgreSQL app](https://postgresapp.com/downloads.html)
+5. Run following commands:
+```shell
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
 ## Useful Commands
 ```shell
 rails routes
 rails console
 ```
+
+## References
+- [Migrate to PostgreSQL](https://medium.com/@virtual_khan/converting-rails-from-sqlite3-to-postgresql-d97023314a14)
