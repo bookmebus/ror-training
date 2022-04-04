@@ -30,6 +30,7 @@ Things you may want to cover:
 ## Demonstrations
 - [Greeting](https://greeting-rails-training.herokuapp.com)
 - [Tandibi](https://tandibi-ror-training.herokuapp.com/)
+- [Quote](https://quote-rails-training.herokuapp.com)
 
 ## Prerequisites
 ```s
