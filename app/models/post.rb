@@ -25,6 +25,7 @@ class Post < ApplicationRecord
   belongs_to :user
   # by default, it required relation belongs_to but to make it optional, we used optional: true
   belongs_to :thread, class_name: 'Post', optional: true
+  has_many :replies, class_name: 'Post', foreign_key: :thread_id
   has_many :pictures
   # create scope no_reply
   scope :not_reply, -> { where(thread_id: nil) }
