@@ -61,7 +61,7 @@ git push heroku master
 #### Conflict Platform Supports
 Your bundle only supports platforms ["x86_64-darwin-20"] but your local platform is x86_64-linux:
 ```
-bundle lock --add-platform x86_64-linux`
+bundle lock --add-platform x86_64-linux
 git commit -m "your-message"
 git push heroku master
 ```
